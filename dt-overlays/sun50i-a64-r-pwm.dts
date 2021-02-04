@@ -1,0 +1,23 @@
+/*
+* DevDotNet.ORG <anton@devdotnet.org>
+*
+* MIT License
+* 
+* Device: PWM
+* Module      Connector
+* Control    <-  PL10
+*/
+
+/dts-v1/;
+/plugin/;
+
+/ { 
+	compatible = "allwinner,sun50i-a64","allwinner,sun50i-a64-pwm";
+
+	fragment@0 {
+		target = <&r_pwm>; /* PL10 */ 
+		__overlay__ {
+				status = "okay";			
+		};
+	};
+};

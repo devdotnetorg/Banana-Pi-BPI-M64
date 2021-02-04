@@ -1,0 +1,56 @@
+/*
+* DevDotNet.ORG <anton@devdotnet.org>
+*
+* MIT License
+* 
+* Device: 2.4inch SPI Module ILI9341 / banana pi m-64
+* Module      Connector
+* CS		<-  PD0
+* RESET		<-  PD4
+* DC/RS		<-  PC3
+* SDI(MOSI)	<-  PD2
+* SCK		<-  PD1
+* LED		<-  any digital pin or 3.3V power 
+* SDO(MISO)	->  PD3
+*/
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "allwinner,sun8i-h3";	
+
+  fragment@0 {
+    target = <&pio>;
+    __overlay__ {
+      ili9341_pins: ili9341_pins {
+        pins = "PD4", "PC3"; /*RESET, DC_RS*/
+        function = "gpio_out", "gpio_out" ;
+      };
+    };
+  };
+  
+  fragment@1 {
+    target = <&spi1>;
+    __overlay__ {
+      status = "okay";      
+      cs-gpios = <&pio 3 0 0>; /* PD0 */
+
+      ili9341: ili9341@0 {
+        compatible = "ilitek,ili9341";
+        reg = <0>;
+        pinctrl-names = "default";
+        pinctrl-0 = <&ili9341_pins>;
+
+        spi-max-frequency = <16000000>;
+        rotate = <90>;
+        bgr;
+        fps = <25>;
+        buswidth = <8>;
+        reset-gpios = <&pio 3 4 1>; /*RESET=PD4*/
+        dc-gpios = <&pio 2 3 0>; /*DC_RS=PC3*/
+        /*led-gpios = <&pio 2 4 0>; LED=PC4*/
+        debug = <0>;
+      };
+    };
+  };
+};
