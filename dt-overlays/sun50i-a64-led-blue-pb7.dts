@@ -29,10 +29,11 @@
 		__overlay__ {
 			bluecustom {
 				compatible = "gpio-leds";
-				label = "bananapi-m64:bluecustom:user";			 	
+				label = "bananapi-m64:blue:status";			 	
 				pinctrl-names = "default";
 				pinctrl-0 = <&led_bluecustom_pin>;
-				gpios = <&pio 1 7 1>; /* PB7 */
+				gpios = <&pio 1 7 1>; /* PB7 - for LED from DFrobot */
+				/* gpios = <&pio 1 7 0>;  PB7 - for other LED */
 				default-state = "off";
 			};
 		};

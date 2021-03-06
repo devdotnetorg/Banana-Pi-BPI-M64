@@ -1,0 +1,39 @@
+/*
+* DevDotNet.ORG <anton@devdotnet.org>
+*
+* MIT License
+* 
+* Device: PWM-LED
+* Module      Connector
+* Control    <-  PL10
+*/
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	
+	fragment@0 {
+		target = <&r_pwm>; /* PL10 */
+		__overlay__ {
+				status = "okay";
+		};
+	};
+	
+	fragment@1{
+		target-path = "/";
+		__overlay__ {
+				pwmleds {
+				compatible = "pwm-leds";
+				led0 {
+						label = "bananapi-m64:green:status";
+						pwms = <&r_pwm 0 5000000 1>; /* for LED from DFrobot */
+						/*pwms = <&r_pwm 0 5000000 0>; for other LED */
+						max-brightness = <255>;
+						brightness = <0>;						
+                };
+			};
+		};
+	};
+	
+};
