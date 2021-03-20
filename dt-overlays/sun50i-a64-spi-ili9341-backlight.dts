@@ -3,7 +3,7 @@
 *
 * MIT License
 * 
-* Device: 2.4inch SPI Module ILI9341 for banana pi m-64 with Control backlight gpio-backlight (on/off)
+* Device: 2.4inch SPI Module ILI9341 for banana pi m-64 with backlight control gpio-backlight (on/off)
 * Module      Connector
 * CS		<-  PD0
 * RESET		<-  PD4
