@@ -13,7 +13,7 @@
 * LED		<-  PC4 
 * SDO(MISO)	->  PD3
 *
-* on/off LCD echo "0/1" > /sys/class/backlight/backlight/brightness
+* on/off LCD echo "0/1" > /sys/class/backlight/backlightlcdtft/brightness
 */
 /dts-v1/;
 /plugin/;
@@ -34,7 +34,7 @@
   fragment@1 {
     target-path = "/";
     __overlay__ {
-      backlight: backlight {
+      backlightlcdtft: backlightlcdtft {
         compatible = "gpio-backlight";
         pinctrl-names = "default";
         pinctrl-0 = <&backlight_pin>;
@@ -72,7 +72,7 @@
         buswidth = <8>;
         reset-gpios = <&pio 3 4 1>; /*RESET=PD4*/
         dc-gpios = <&pio 2 0 0>; /*DC_RS=PC0*/
-        backlight = <&backlight>;
+        backlight = <&backlightlcdtft>;
         /*led-gpios = <&pio 2 4 0>; LED=PC4*/
         debug = <0>;
       };
