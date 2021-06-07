@@ -1,0 +1,26 @@
+/*
+* DevDotNet.ORG <anton@devdotnet.org>
+*
+* MIT License
+* 
+* Device: Integrated green LED
+*/
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "allwinner,sun50i-a64";
+	
+	fragment@0 {
+		target-path = "/leds/";
+		__overlay__ {
+			green {
+				compatible = "gpio-leds";
+				label = "bananapi-m64:green:disk-activity";			 					
+				default-state = "off";
+				linux,default-trigger = "mmc0";				
+			};
+		};
+	};
+};
