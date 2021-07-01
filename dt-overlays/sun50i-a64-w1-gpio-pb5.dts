@@ -1,0 +1,39 @@
+/*
+* DevDotNet.ORG <anton@devdotnet.org>
+*
+* MIT License
+* 
+* Device: DS18B20
+* Module      Connector
+* Control    ->  PB5
+*/
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "allwinner,sun50i-a64";
+
+	fragment@0 {
+		target = <&pio>;
+		__overlay__ {
+			w1_pb5_pins: w1-pb5-pins {
+				pins = "PB5";
+				function = "gpio_in";
+			};
+		};
+	};
+
+	fragment@1 {
+		target-path = "/";
+		__overlay__ {
+			onewire@1 {
+				compatible = "w1-gpio";
+				pinctrl-names = "default";
+				pinctrl-0 = <&w1_pb5_pins>;
+				gpios = <&pio 1 5 0>; /* PB5 */
+				status = "okay";
+			};
+		};
+	};
+};
