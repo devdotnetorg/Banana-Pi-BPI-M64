@@ -58,7 +58,7 @@
           compatible = "pwm-backlight";
           pwms = <&r_pwm 0 5000000 0>;
           		  
-		  brightness-levels = <0 8 16 32 48 64 80 96 160 224 255>;
+		  brightness-levels = <0 8 16 32 48 64 80 96 160 210 240>; //max=255
           default-brightness-level = <8>;
 		  
           //power-supply = <&reg_dcdc1>;
