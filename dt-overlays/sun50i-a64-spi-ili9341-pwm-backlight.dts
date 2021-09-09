@@ -1,4 +1,21 @@
-
+/*
+* DevDotNet.ORG <anton@devdotnet.org>
+*
+* MIT License
+* 
+* Device: 2.4inch SPI Module ILI9341 / banana pi m-64
+* Module      Connector
+* CS		<-  PD0
+* RESET		<-  PD4
+* DC/RS		<-  PC0
+* SDI(MOSI)	<-  PD2
+* SCK		<-  PD1
+* LED		<-  AO2 (TB6612FNG-Dual Motor Driver)
+* SDO(MISO)	->  PD3
+*
+* Device: TB6612FNG-Dual Motor Driver / banana pi m-64
+* PWMA 		<-  PL10 (PWM)
+*/
 /dts-v1/;
 /plugin/;
 
