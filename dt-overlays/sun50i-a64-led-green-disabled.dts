@@ -1,0 +1,24 @@
+/*
+* DevDotNet.ORG <anton@devdotnet.org>
+*
+* MIT License
+* 
+* Device: Integrated green LED
+*/
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "allwinner,sun50i-a64";
+	
+	fragment@0 {
+		target-path = "/leds/";
+		__overlay__ {
+			green {				
+				//turn off the device
+				status = "disabled";			
+			};
+		};
+	};
+};
