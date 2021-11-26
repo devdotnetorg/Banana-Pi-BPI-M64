@@ -30,7 +30,7 @@
 			
 			bmp280@XX {
 				compatible = "bosch,bmp280";				
-				reg = <0xXX>;				
+				reg = <0x76>;				
 				status = "okay";				
 			};
 		};
