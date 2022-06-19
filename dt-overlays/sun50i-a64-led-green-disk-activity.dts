@@ -15,7 +15,7 @@
 	fragment@0 {
 		target-path = "/leds/";
 		__overlay__ {
-			green {
+			led-1 {
 				compatible = "gpio-leds";
 				label = "bananapi-m64:green:disk-activity";			 					
 				default-state = "off";

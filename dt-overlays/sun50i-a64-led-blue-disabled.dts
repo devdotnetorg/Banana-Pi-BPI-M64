@@ -15,7 +15,7 @@
 	fragment@0 {
 		target-path = "/leds/";
 		__overlay__ {
-			blue {				
+			led-2 {				
 				//turn off the device
 				status = "disabled";			
 			};
